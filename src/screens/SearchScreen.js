@@ -7,7 +7,11 @@ const SearchScreen = () => {
 
     return (
         <View>
-            <SearchBar term={term} onTermChange={(newTerm) => setTerm(newTerm)}/>
+            <SearchBar
+                term = {term}
+                onTermChange={(newTerm) => setTerm(newTerm)}
+                onTermSubmit = {() => console.log('term is submitted')}
+            />
             <Text>Search Screen is {term} </Text>
         </View>
     )
