@@ -1,4 +1,4 @@
-import {useEffect , useState} from 'react';
+import {useEffect, useState} from 'react';
 import yelp from "../api/yelp";
 
 export default () => {
@@ -11,7 +11,7 @@ export default () => {
             const response = await yelp.get('/search', {
                 params: {
                     limit: 50,
-                    term :searchTerm,
+                    term: searchTerm,
                     location: 'san jose'
                 }
             });
@@ -21,10 +21,10 @@ export default () => {
         }
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         searchApi('pasta');
-    } , []);
+    }, []);
 
-    return [searchApi , results , errorMessage];
+    return [searchApi, results, errorMessage];
 
 };
