@@ -4,6 +4,7 @@ import SearchBar from "../components/SearchBar";
 import yelp from "../api/yelp";
 import useResults from "../hooks/useResults";
 import ResultsList from "../components/ResultsList";
+import ActivityIndicatorExample from "../components/ActivityIndicator";
 
 const SearchScreen = () => {
     const [term, setTerm] = useState('');
@@ -18,6 +19,7 @@ const SearchScreen = () => {
 
     return (
         <>
+            <ActivityIndicatorExample/>
             <SearchBar
                 term={term}
                 onTermChange={setTerm}
