@@ -6,6 +6,7 @@ import useResults from "../hooks/useResults";
 import ResultsList from "../components/ResultsList";
 import ActivityIndicatorExample from "../components/ActivityIndicator";
 
+
 const SearchScreen = () => {
     const [term, setTerm] = useState('');
     const [searchApi, results, errorMessage] = useResults();
