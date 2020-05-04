@@ -37,10 +37,15 @@ const ResultsShowScreen = ({navigation}) => {
             <Text>{dummy}</Text>
         )
     };
+
     const AddressComponent = () =>{
         return(
           <View>
-
+              {result.location.address1 ? <Text>{result.location.address1}, </Text> : null}
+              {result.location.address2 ? <Text>{result.location.address2}, </Text> : null}
+              {result.location.address3 ? <Text>{result.location.address3} ,    </Text> : null}
+              {result.location.city ? <Text>{result.location.city} ,</Text> : null}
+              {result.location.state ? <Text>{result.location.state} , {result.location.zip_code}</Text> : null}
           </View>
         );
     }
@@ -89,13 +94,14 @@ const ResultsShowScreen = ({navigation}) => {
             </View>
 
             <View style={styles.downContainer}>
-                <View style={{flex:3}}>
+                <View style={{flex:2}}>
                     <Text style={styles.ifOpen}>
                         {result.hours[0].is_open_now ? 'Currenty Open' : 'Currently Closed'}
                     </Text>
                 </View>
-                <View style={{flex:1}}>
-                    <FontAwesome name = "address-book" style={{fontSize:35 , textAlign:'center'}}/>
+                <View style={styles.contactSection}>
+                    <FontAwesome name = "address-book" style={{fontSize:40 , textAlign:'center'}}/>
+                    <AddressComponent/>
                 </View>
             </View>
 
@@ -144,6 +150,15 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         marginTop:15
+    },
+    contactSection:{
+        flex:1,
+        backgroundColor:'#d32c64',
+        marginRight:15,
+        height:145,
+        width:40,
+        padding:15,
+        borderRadius: 20,
     },
     activityIndicatorContainer: {
         flex: 1,
