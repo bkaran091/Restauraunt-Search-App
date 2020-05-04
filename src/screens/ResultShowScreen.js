@@ -6,6 +6,7 @@ import {FontAwesome} from '@expo/vector-icons';
 import RatingBar from "../components/RatingBar";
 
 
+
 const ResultsShowScreen = ({navigation}) => {
     const [result, setResult] = useState(null);
     const id = navigation.getParam('id');
@@ -23,38 +24,42 @@ const ResultsShowScreen = ({navigation}) => {
         return null;
     }
 
-    console.log(result.categories.length)
-    const CstegoryComp = () => {
+    const CategoryComponent = () => {
         let dummy = "";
         result.categories.forEach(function (cat, index) {
             dummy += cat.title;
-            if(index!==result.categories.length-1){
+            if (index !== result.categories.length - 1) {
                 dummy += " - ";
             }
         })
 
         return (
-            <Text> {dummy}</Text>
+            <Text>{dummy}</Text>
         )
-        // return (
-        //     // <Text> Hi</Text>
-        //     <View>
-        //         {/*<Text>  {result.categories[0].title}</Text>*/}
-        //         {/*<Text>  {result.categories[1].title}</Text>*/}
-        //         {/*<Text>  {result.categories[2].title}</Text>*/}
-        //         {/*<Text>  {result.categories[3].title}</Text>*/}
-        //
-        //
-        //         {/*<Text> Huff</Text>*/}
-        //
-        //         {result.categories.map( category =>  {
-        //             return <Text> {category.title} </Text>;
-        //         })}
-        //         </View>
-        // )
     };
+    const AddressComponent = () =>{
+        return(
+          <View>
 
-
+          </View>
+        );
+    }
+    // return (
+    //     // <Text> Hi</Text>
+    //     <View>
+    //         {/*<Text>  {result.categories[0].title}</Text>*/}
+    //         {/*<Text>  {result.categories[1].title}</Text>*/}
+    //         {/*<Text>  {result.categories[2].title}</Text>*/}
+    //         {/*<Text>  {result.categories[3].title}</Text>*/}
+    //
+    //
+    //         {/*<Text> Huff</Text>*/}
+    //
+    //         {result.categories.map( category =>  {
+    //             return <Text> {category.title} </Text>;
+    //         })}
+    //         </View>
+    // )
 
     return (
         <>
@@ -76,14 +81,24 @@ const ResultsShowScreen = ({navigation}) => {
             <View style={styles.detailsContainer}>
                 <View style={styles.info}>
                     <Text style={styles.title}>{result.name}</Text>
+                    <Text style={styles.infoText}>
+                        {<CategoryComponent/>}
+                    </Text>
                 </View>
-                <View>
-                    { <CstegoryComp/>}
-                </View>
-
                 <RatingBar result={result}/>
             </View>
-            <Text>get lost</Text>
+
+            <View style={styles.downContainer}>
+                <View style={{flex:3}}>
+                    <Text style={styles.ifOpen}>
+                        {result.hours[0].is_open_now ? 'Currenty Open' : 'Currently Closed'}
+                    </Text>
+                </View>
+                <View style={{flex:1}}>
+                    <FontAwesome name = "address-book" style={{fontSize:35 , textAlign:'center'}}/>
+                </View>
+            </View>
+
 
         </>
 
@@ -102,17 +117,33 @@ const styles = StyleSheet.create({
     },
     detailsContainer: {
         display: 'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
     },
     title: {
         fontSize: 25,
         fontWeight: 'bold',
-        // fontFamily: 'System',
-
     },
     info: {
         flex: 4,
-        // backgroundColor:'grey',
+        marginLeft: 15,
+        backgroundColor: '#ffd0fd',
+        padding: 5,
+        alignContent: 'center'
+    },
+    infoText: {
+        fontSize: 16,
+    },
+    ifOpen: {
+        marginLeft: 15,
+        fontSize: 19,
+        color: 'red',
+        fontFamily: 'System'
+    },
+
+    downContainer:{
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop:15
     },
     activityIndicatorContainer: {
         flex: 1,
