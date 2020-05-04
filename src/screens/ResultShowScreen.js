@@ -3,6 +3,8 @@ import {View, Text, StyleSheet, FlatList, Image, ActivityIndicator} from 'react-
 import yelp from "../api/yelp";
 import ActivityIndicatorExample from "../components/ActivityIndicator";
 import {FontAwesome} from '@expo/vector-icons';
+import RatingBar from "../components/RatingBar";
+
 
 const ResultsShowScreen = ({navigation}) => {
     const [result, setResult] = useState(null);
@@ -20,6 +22,39 @@ const ResultsShowScreen = ({navigation}) => {
     if (!result) {
         return null;
     }
+
+    console.log(result.categories.length)
+    const CstegoryComp = () => {
+        let dummy = "";
+        result.categories.forEach(function (cat, index) {
+            dummy += cat.title;
+            if(index!==result.categories.length-1){
+                dummy += " - ";
+            }
+        })
+
+        return (
+            <Text> {dummy}</Text>
+        )
+        // return (
+        //     // <Text> Hi</Text>
+        //     <View>
+        //         {/*<Text>  {result.categories[0].title}</Text>*/}
+        //         {/*<Text>  {result.categories[1].title}</Text>*/}
+        //         {/*<Text>  {result.categories[2].title}</Text>*/}
+        //         {/*<Text>  {result.categories[3].title}</Text>*/}
+        //
+        //
+        //         {/*<Text> Huff</Text>*/}
+        //
+        //         {result.categories.map( category =>  {
+        //             return <Text> {category.title} </Text>;
+        //         })}
+        //         </View>
+        // )
+    };
+
+
 
     return (
         <>
@@ -42,17 +77,14 @@ const ResultsShowScreen = ({navigation}) => {
                 <View style={styles.info}>
                     <Text style={styles.title}>{result.name}</Text>
                 </View>
-                <View style={styles.ratingSideBar}>
-                    <View style={styles.rating}>
-                        <FontAwesome name={'star'}/>
-                        <Text style={styles.ratingText}>{result.rating}</Text>
-                    </View>
-                    <View style={styles.review}>
-                        <Text>{result.review_count} Reviews</Text>
-                    </View>
+                <View>
+                    { <CstegoryComp/>}
                 </View>
+
+                <RatingBar result={result}/>
             </View>
             <Text>get lost</Text>
+
         </>
 
     )
@@ -75,40 +107,13 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 25,
         fontWeight: 'bold',
+        // fontFamily: 'System',
+
     },
     info: {
         flex: 4,
         // backgroundColor:'grey',
     },
-    ratingSideBar: {
-        flex: 1,
-        backgroundColor: 'yellow',
-        flexDirection: 'column',
-        height: 90,
-        width: 50,
-        borderRadius: 2,
-        borderColor: 'black',
-        borderWidth:2,
-        marginRight: 15,
-    },
-    rating: {
-        flex: 1,
-        backgroundColor: 'green',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    ratingText:{
-      fontSize: 18,
-        color:'white'
-    },
-    review: {
-        flex: 1,
-        backgroundColor: 'white',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-
-
     activityIndicatorContainer: {
         flex: 1,
         justifyContent: 'center',
