@@ -4,7 +4,7 @@ import yelp from "../api/yelp";
 import ActivityIndicatorExample from "../components/ActivityIndicator";
 import {FontAwesome} from '@expo/vector-icons';
 import RatingBar from "../components/RatingBar";
-
+import ResultShowImageShow from "../components/ResultShowImageShow";
 
 
 const ResultsShowScreen = ({navigation}) => {
@@ -38,15 +38,15 @@ const ResultsShowScreen = ({navigation}) => {
         )
     };
 
-    const AddressComponent = () =>{
-        return(
-          <View>
-              {result.location.address1 ? <Text>{result.location.address1}, </Text> : null}
-              {result.location.address2 ? <Text>{result.location.address2}, </Text> : null}
-              {result.location.address3 ? <Text>{result.location.address3} ,    </Text> : null}
-              {result.location.city ? <Text>{result.location.city} ,</Text> : null}
-              {result.location.state ? <Text>{result.location.state} , {result.location.zip_code}</Text> : null}
-          </View>
+    const AddressComponent = () => {
+        return (
+            <View>
+                {result.location.address1 ? <Text>{result.location.address1}, </Text> : null}
+                {result.location.address2 ? <Text>{result.location.address2}, </Text> : null}
+                {result.location.address3 ? <Text>{result.location.address3} , </Text> : null}
+                {result.location.city ? <Text>{result.location.city} ,</Text> : null}
+                {result.location.state ? <Text>{result.location.state} , {result.location.zip_code}</Text> : null}
+            </View>
         );
     }
     // return (
@@ -69,20 +69,9 @@ const ResultsShowScreen = ({navigation}) => {
     return (
         <>
             <ActivityIndicatorExample/>
-            <View>
-                <FlatList
-                    data={result.photos}
-                    horizontal
-                    keyExtractor={(photo) => photo}
-                    renderItem={({item}) => {
-                        return (
-                            <View style={styles.FlatListContainer}>
-                                <Image source={{uri: item}} style={styles.image}/>
-                            </View>
-                        )
-                    }}
-                />
-            </View>
+
+            <ResultShowImageShow result={result}/>
+
             <View style={styles.detailsContainer}>
                 <View style={styles.info}>
                     <Text style={styles.title}>{result.name}</Text>
@@ -94,13 +83,13 @@ const ResultsShowScreen = ({navigation}) => {
             </View>
 
             <View style={styles.downContainer}>
-                <View style={{flex:2}}>
+                <View style={{flex: 2}}>
                     <Text style={styles.ifOpen}>
                         {result.hours[0].is_open_now ? 'Currenty Open' : 'Currently Closed'}
                     </Text>
                 </View>
                 <View style={styles.contactSection}>
-                    <FontAwesome name = "address-book" style={{fontSize:40 , textAlign:'center'}}/>
+                    <FontAwesome name="address-book" style={{fontSize: 40, textAlign: 'center'}}/>
                     <AddressComponent/>
                 </View>
             </View>
@@ -112,15 +101,6 @@ const ResultsShowScreen = ({navigation}) => {
 }
 
 const styles = StyleSheet.create({
-    FlatListContainer: {
-        alignItems: 'center',
-    },
-    image: {
-        height: 200,
-        width: 300,
-        margin: 15,
-        borderRadius: 2,
-    },
     detailsContainer: {
         display: 'flex',
         flexDirection: 'row',
@@ -146,18 +126,18 @@ const styles = StyleSheet.create({
         fontFamily: 'System'
     },
 
-    downContainer:{
+    downContainer: {
         display: 'flex',
         flexDirection: 'row',
-        marginTop:15
+        marginTop: 15
     },
-    contactSection:{
-        flex:1,
-        backgroundColor:'#d32c64',
-        marginRight:15,
-        height:145,
-        width:40,
-        padding:15,
+    contactSection: {
+        flex: 1,
+        backgroundColor: '#d32c64',
+        marginRight: 15,
+        height: 145,
+        width: 40,
+        padding: 15,
         borderRadius: 20,
     },
     activityIndicatorContainer: {
