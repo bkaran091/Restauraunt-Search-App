@@ -1,8 +1,11 @@
-import React, from 'react';
+import React from 'react';
 import {StyleSheet} from 'react-native';
 import {List} from 'react-native-paper';
 
 const OpenDays = ({result}) => {
+    if(!result) {
+        return null;
+    }
     const changeString = (string) => {
         return string[0] + string[1] + ':' + string[2] + string[3];
     }
