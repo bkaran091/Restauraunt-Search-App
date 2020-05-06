@@ -8,6 +8,7 @@ import ResultShowHeaderDetail from "../components/ResultShowHeaderDetail";
 import AddressDetail from "../components/AdressDetails";
 import OpenDays from "../components/OpenDays";
 import Review from "../components/Review";
+import Gallery from "../components/Gallery";
 
 const ResultsShowScreen = ({navigation}) => {
     const [result, setResult] = useState(null);
@@ -91,6 +92,7 @@ const ResultsShowScreen = ({navigation}) => {
                 {/*<View style={styles.openButton}>*/}
                 {/*    <Button color={'white'} title={'Show Gallery'} onPress={()=>{}} />*/}
                 {/*</View>*/}
+                <Gallery result={result}/>
             </ScrollView>
         </>
     )
@@ -128,7 +130,7 @@ const styles = StyleSheet.create({
 
         marginRight:15,
         marginTop: 10,
-        backgroundColor: 'blue',
+        backgroundColor: '#1babe4',
         textAlign: 'center',
         justifyContent: 'center',
         padding: 5,
@@ -138,7 +140,7 @@ const styles = StyleSheet.create({
         fontSize: 25,
     },
     phone: {
-        fontSize: 25,
+        fontSize: 22,
     },
     downContainer: {
         display: 'flex',

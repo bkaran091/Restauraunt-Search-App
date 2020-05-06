@@ -7,6 +7,7 @@ const ResultShowImageShow = ({result}) => {
             <FlatList
                 data={result.photos}
                 horizontal
+                showsHorizontalScrollIndicator={false}
                 keyExtractor={(photo) => photo}
                 renderItem={({item}) => {
                     return (
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
         height: 200,
         width: 300,
         margin: 15,
-        borderRadius: 2,
+        borderRadius: 10,
     },
 });
 

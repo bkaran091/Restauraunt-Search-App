@@ -30,7 +30,8 @@ const styles = StyleSheet.create ({
         // marginTop: 70,
         left:'50%',
         top:'40%',
-        position:'absolute'
+        position:'absolute',
+        zIndex:29,
 
     },
     activityIndicator: {
