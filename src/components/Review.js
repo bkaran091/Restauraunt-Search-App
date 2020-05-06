@@ -1,18 +1,7 @@
-import React, { Component, useState } from "react";
-import {
-    Alert,
-    Modal,
-    StyleSheet,
-    Text,
-    TouchableHighlight,
-    View
-} from "react-native";
-import yelp from "../api/yelp";
-
-
+import React, {useState} from "react";
+import {Alert, Modal, StyleSheet, Text, TouchableHighlight, View} from "react-native";
 
 const Review = ({data}) => {
-
 
     const [modalVisible, setModalVisible] = useState(false);
     return (
@@ -28,12 +17,15 @@ const Review = ({data}) => {
             >
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
-                        <Text style={styles.modalText}>{`${data.reviews[0].user.name}:-  ${data.reviews[0].text}`}</Text>
-                        <Text style={styles.modalText}>{`${data.reviews[1].user.name}:-  ${data.reviews[1].text}`}</Text>
-                        <Text style={styles.modalText}>{`${data.reviews[2].user.name}:-  ${data.reviews[2].text}`}</Text>
+                        <Text
+                            style={styles.modalText}>{`${data.reviews[0].user.name}:-  ${data.reviews[0].text}`}</Text>
+                        <Text
+                            style={styles.modalText}>{`${data.reviews[1].user.name}:-  ${data.reviews[1].text}`}</Text>
+                        <Text
+                            style={styles.modalText}>{`${data.reviews[2].user.name}:-  ${data.reviews[2].text}`}</Text>
 
                         <TouchableHighlight
-                            style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+                            style={{...styles.openButton, backgroundColor: "#2196F3"}}
                             onPress={() => {
                                 setModalVisible(!modalVisible);
                             }}
@@ -92,7 +84,7 @@ const styles = StyleSheet.create({
     modalText: {
         marginBottom: 15,
         textAlign: "center",
-        fontSize:20,
+        fontSize: 20,
     }
 });
 

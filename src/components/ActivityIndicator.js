@@ -1,38 +1,38 @@
-import React, { Component } from 'react';
-import { ActivityIndicator, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React, {Component} from 'react';
+import {ActivityIndicator, View, StyleSheet} from 'react-native';
 
 class ActivityIndicatorExample extends Component {
-    state = { animating: true }
+    state = {animating: true}
 
     closeActivityIndicator = () => setTimeout(() => this.setState({
-        animating: false }), 2000)
+        animating: false
+    }), 2000)
 
     componentDidMount = () => this.closeActivityIndicator()
+
     render() {
         const animating = this.state.animating
         return (
-            <View style = {styles.container}>
+            <View style={styles.container}>
                 <ActivityIndicator
-                    animating = {animating}
-                    color = '#bc2b78'
-                    size = "large"
-                    style = {styles.activityIndicator}/>
+                    animating={animating}
+                    color='#bc2b78'
+                    size="large"
+                    style={styles.activityIndicator}/>
             </View>
         )
     }
 }
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        // marginTop: 70,
-        left:'50%',
-        top:'40%',
-        position:'absolute',
-        zIndex:29,
-
+        left: '50%',
+        top: '40%',
+        position: 'absolute',
+        zIndex: 29,
     },
     activityIndicator: {
         flex: 1,
@@ -42,4 +42,4 @@ const styles = StyleSheet.create ({
     }
 })
 
-export default ActivityIndicatorExample
+export default ActivityIndicatorExample;

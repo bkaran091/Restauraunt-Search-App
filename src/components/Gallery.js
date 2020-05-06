@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, {useState} from "react";
 import {
     Alert, FlatList, Image,
     Modal,
@@ -7,13 +7,8 @@ import {
     TouchableHighlight,
     View
 } from "react-native";
-import yelp from "../api/yelp";
-
-
 
 const Gallery = ({result}) => {
-
-
     const [modalVisible, setModalVisible] = useState(false);
     return (
         <View style={styles.centeredView}>
@@ -28,7 +23,7 @@ const Gallery = ({result}) => {
             >
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
-                        <View style={{flex:1}}>
+                        <View style={{flex: 1}}>
                             <FlatList
                                 data={result.photos}
                                 keyExtractor={(photo) => photo}
@@ -42,7 +37,7 @@ const Gallery = ({result}) => {
                             />
                         </View>
                         <TouchableHighlight
-                            style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+                            style={{...styles.openButton, backgroundColor: "#2196F3"}}
                             onPress={() => {
                                 setModalVisible(!modalVisible);
                             }}
@@ -71,7 +66,7 @@ const styles = StyleSheet.create({
         width: 300,
         borderRadius: 20,
         marginBottom: 30,
-        borderWidth:3
+        borderWidth: 3
     },
     centeredView: {
         flex: 1,
@@ -109,7 +104,7 @@ const styles = StyleSheet.create({
     modalText: {
         marginBottom: 15,
         textAlign: "center",
-        fontSize:20,
+        fontSize: 20,
     }
 });
 

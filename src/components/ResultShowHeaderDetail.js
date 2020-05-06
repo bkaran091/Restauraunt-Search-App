@@ -1,7 +1,6 @@
 import React from 'react';
-import {Text , StyleSheet , View} from 'react-native';
+import {Text, StyleSheet, View} from 'react-native';
 import RatingBar from "./RatingBar";
-
 
 const ResultShowHeaderDetail = ({result}) => {
     const CategoryComponent = () => {
@@ -16,16 +15,17 @@ const ResultShowHeaderDetail = ({result}) => {
             <Text>{dummy}</Text>
         )
     }
-    return(
-    <View style={styles.headerDetailsContainer}>
-        <View style={styles.info}>
-            <Text style={styles.title}>{result.name}</Text>
-            <Text style={styles.infoText}>
-                {<CategoryComponent/>}
-            </Text>
+
+    return (
+        <View style={styles.headerDetailsContainer}>
+            <View style={styles.info}>
+                <Text style={styles.title}>{result.name}</Text>
+                <Text style={styles.infoText}>
+                    {<CategoryComponent/>}
+                </Text>
+            </View>
+            <RatingBar result={result}/>
         </View>
-        <RatingBar result={result}/>
-    </View>
     )
 };
 

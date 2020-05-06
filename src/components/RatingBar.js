@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet , View , Text} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {FontAwesome} from "@expo/vector-icons";
 
 const RatingBar = ({result}) => {
@@ -12,12 +12,12 @@ const RatingBar = ({result}) => {
                 </View>
             </View>
             <View style={styles.review}>
-                <Text style={{fontWeight: 'bold' , fontSize:15}}>{result.review_count} </Text>
-                <Text style={{fontWeight: 'bold' , fontSize:15}}>Reviews </Text>
+                <Text style={{fontWeight: 'bold', fontSize: 15}}>{result.review_count} </Text>
+                <Text style={{fontWeight: 'bold', fontSize: 15}}>Reviews </Text>
             </View>
         </View>
     )
-}
+};
 
 const styles = StyleSheet.create({
     ratingSideBar: {

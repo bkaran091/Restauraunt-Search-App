@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, Text, StyleSheet, FlatList, TouchableOpacity, Button} from 'react-native';
+import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import ResultDetail from "./ResultDetail";
 import {withNavigation} from "react-navigation";
 
 const ResultsList = ({title, results, navigation}) => {
-    if(!results.length){
+    if (!results.length) {
         return null;
     }
     return (
@@ -28,8 +28,6 @@ const ResultsList = ({title, results, navigation}) => {
                     );
                 }}
             />
-
-
         </View>
     );
 };

@@ -1,11 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import React, {useState} from 'react';
+import {Text, ScrollView} from 'react-native';
 import SearchBar from "../components/SearchBar";
-import yelp from "../api/yelp";
 import useResults from "../hooks/useResults";
 import ResultsList from "../components/ResultsList";
 import ActivityIndicatorExample from "../components/ActivityIndicator";
-
 
 const SearchScreen = () => {
     const [term, setTerm] = useState('');
@@ -36,7 +34,5 @@ const SearchScreen = () => {
         </>
     )
 };
-
-const styles = StyleSheet.create({});
 
 export default SearchScreen;

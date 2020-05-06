@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text , StyleSheet , View} from 'react-native';
+import {Text, StyleSheet, View} from 'react-native';
 import {FontAwesome} from "@expo/vector-icons";
 
 const AddressDetail = ({result}) => {
@@ -10,13 +10,15 @@ const AddressDetail = ({result}) => {
                 {result.location.address2 ? <Text style={styles.text}>{result.location.address2}, </Text> : null}
                 {result.location.address3 ? <Text style={styles.text}>{result.location.address3} , </Text> : null}
                 {result.location.city ? <Text style={styles.text}>{result.location.city} ,</Text> : null}
-                {result.location.state ? <Text style={styles.text}>{result.location.state} , {result.location.zip_code}</Text> : null}
+                {result.location.state ?
+                    <Text style={styles.text}>{result.location.state} , {result.location.zip_code}</Text> : null}
             </View>
         );
     }
     return (
         <View style={styles.contactSection}>
-            <FontAwesome name="address-book" style={{fontSize: 40, textAlign: 'center' , color:'white', marginBottom:5}}/>
+            <FontAwesome name="address-book"
+                         style={{fontSize: 40, textAlign: 'center', color: 'white', marginBottom: 5}}/>
             <AddressComponent/>
         </View>
     )
@@ -32,9 +34,9 @@ const styles = StyleSheet.create({
         padding: 15,
         borderRadius: 20,
     },
-    text:{
-      color:'white',
-        fontWeight:'bold',
+    text: {
+        color: 'white',
+        fontWeight: 'bold',
     },
 });
 
