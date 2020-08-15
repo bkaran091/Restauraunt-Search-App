@@ -35,7 +35,7 @@ const ResultsShowScreen = ({navigation}) => {
     }
     return (
         <>
-            <ScrollView>
+            <ScrollView style={{backgroundColor:'white', flex:1}}>
                 <ActivityIndicatorExample/>
                 <ResultShowImageShow result={result}/>
                 <ResultShowHeaderDetail result={result}/>
