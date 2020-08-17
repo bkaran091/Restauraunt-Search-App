@@ -19,8 +19,6 @@ const SearchScreen = () => {
     return (
         <>
             <View style={{backgroundColor: 'white', flex: 1}}>
-
-                <ActivityIndicatorExample/>
                 <SearchBar
                     term={term}
                     onTermChange={setTerm}
