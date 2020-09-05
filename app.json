@@ -1,17 +1,17 @@
 {
   "expo": {
     "name": "food",
+    "icon": "./assets/iconApp.png",
     "description": "This is Restaurant Search App",
     "slug": "food",
     "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
-      "android",
-      "web"
+      "web",
+      "android"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -24,7 +24,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.Yelp.RestaurauntSeach"
     },
     "android": {
       "package": "com.Yelp.RestaurauntSeach"
