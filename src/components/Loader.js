@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {ActivityIndicator, View, StyleSheet} from 'react-native';
 
-class ActivityIndicatorExample extends Component {
+class Loader extends Component {
     state = {animating: true}
 
     closeActivityIndicator = () => setTimeout(() => this.setState({
         animating: false
-    }), 2000)
+    }), 1000)
 
     componentDidMount = () => this.closeActivityIndicator()
 
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ActivityIndicatorExample;
+export default Loader;

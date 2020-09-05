@@ -1,14 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {ScrollView, View, Text, Image, Button, Clipboard} from 'react-native';
-import StarRating from 'react-native-star-rating';
+import {ScrollView, StyleSheet} from 'react-native';
 import yelp from "../api/yelp";
-import ActivityIndicatorExample from "../components/ActivityIndicator";
+import Loader from "../components/Loader";
 import ResultShowImageShow from "../components/ResultShowImageShow";
 import ResultShowHeaderDetail from "../components/ResultShowHeaderDetail";
-import OpenDays from "../components/OpenDays";
-import Review from "../components/Review";
-import CurrentlyOpenClose from "../components/CurrentlyOpenClose";
-import AddressDetail from "../components/AdressDetails";
+import AddressComponent from "../components/AdressDetails";
+import RatingComponent from "../components/RatingComponent";
 
 
 const ResultsShowScreen = ({id}) => {
@@ -33,41 +30,25 @@ const ResultsShowScreen = ({id}) => {
         return null;
     }
 
-
-
-    const RatingComponent = () => {
-        return (
-            <View style={{margin: 20, flexDirection: 'row'}}>
-                <View style={{width: '30%'}}>
-                    <StarRating disabled={true} maxStars={5} rating={result.rating} starSize={22}
-                                halfStarEnabled={true}/>
-                    <View>
-                        <Text>{result.review_count} REVIEWS</Text>
-                    </View>
-                </View>
-                <View style={{marginLeft: 100, alignItems: 'center'}}>
-                    {/*<Text style={{fontSize:16}}>Add a Review</Text>*/}
-                    <Image source={require('../../assets/addRating.png')} style={{height: 30, width: 30}}/>
-                </View>
-            </View>
-        );
-    }
-
-
     return (
         <>
-            <ScrollView style={{backgroundColor: 'white', flex: 1}}>
-                {/*<ActivityIndicatorExample/>*/}
+            <ScrollView style={styles.container}>
+                <Loader/>
                 <ResultShowImageShow result={result}/>
-                <RatingComponent/>
+                <RatingComponent result={result}/>
                 <ResultShowHeaderDetail result={result}/>
-                <AddressDetail result={result}/>
-                <CurrentlyOpenClose result={result}/>
-                <OpenDays result={result}/>
-                <Review data={review}/>
+                <AddressComponent result={result}/>
             </ScrollView>
         </>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: 'white',
+        flex: 1
+    }
+})
+
 
 export default ResultsShowScreen;

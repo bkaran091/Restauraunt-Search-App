@@ -1,14 +1,7 @@
 import React, {useState, useEffect} from "react";
-import {
-    Alert, FlatList, Image,
-    Modal,
-    StyleSheet,
-    Text,
-    TouchableHighlight,
-    View
-} from "react-native";
+import {FlatList, Image, StyleSheet, View} from "react-native";
 import yelp from "../api/yelp";
-import ActivityIndicatorExample from "../components/ActivityIndicator";
+import Loader from "../components/Loader";
 
 
 const GalleryScreen = ({id}) => {
@@ -25,9 +18,10 @@ const GalleryScreen = ({id}) => {
     }
     return (
         <View style={styles.centeredView}>
-            {/*<ActivityIndicatorExample/>*/}
+            <Loader/>
             <FlatList
                 data={result.photos}
+                showsVerticalScrollIndicator={false}
                 keyExtractor={(photo) => photo}
                 renderItem={({item}) => {
                     return (
@@ -55,39 +49,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: 'white',
         paddingTop: 20,
-
     },
-    modalView: {
-        margin: 20,
-        backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
-    },
-    openButton: {
-        backgroundColor: "#F194FF",
-        borderRadius: 20,
-        padding: 10,
-        elevation: 2
-    },
-    textStyle: {
-        color: "white",
-        fontWeight: "bold",
-        textAlign: "center"
-    },
-    modalText: {
-        marginBottom: 15,
-        textAlign: "center",
-        fontSize: 20,
-    }
 });
 
 export default GalleryScreen;
